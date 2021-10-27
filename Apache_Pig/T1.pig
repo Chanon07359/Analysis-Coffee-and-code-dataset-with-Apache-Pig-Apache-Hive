@@ -1,4 +1,4 @@
-Coffee_and_Code = LOAD '/user/chanon_sattrupinat_cs/coffee/data/coffee_code.csv' USING PigStorage(',')  AS (CodingHours:float ,CoffeeCupsPerDay:float ,CoffeeTime:chararray,CodingWithoutCoffee:chararray ,CoffeeType:chararray ,CoffeeSolveBugs:chararray ,Gender:chararray ,Country:chararray ,AgeRange:chararray);
+Coffee_and_Code = LOAD '<HDFS PATH>' USING PigStorage(',')  AS (CodingHours:float ,CoffeeCupsPerDay:float ,CoffeeTime:chararray,CodingWithoutCoffee:chararray ,CoffeeType:chararray ,CoffeeSolveBugs:chararray ,Gender:chararray ,Country:chararray ,AgeRange:chararray);
 ranked_Coffee_and_Code = rank Coffee_and_Code;
 Coffee_and_Code_NoHeader = Filter ranked_Coffee_and_Code by (rank_Coffee_and_Code > 1);
 Coffee_and_Code_Ordered = Order Coffee_and_Code_NoHeader by rank_Coffee_and_Code;
